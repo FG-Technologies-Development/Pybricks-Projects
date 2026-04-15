@@ -11,7 +11,6 @@ left_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.D, Direction.CLOCKWISE)
 motor = Motor(Port.E)  # For the arm, if needed
 
-# FIXED ORDER
 robot = DriveBase(right_motor, left_motor, 56, 112)
 
 robot.use_gyro(True)

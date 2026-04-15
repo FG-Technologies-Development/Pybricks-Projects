@@ -25,16 +25,22 @@ robot.settings(
 
 robot.straight(300)
 hub.speaker.beep()
+
 robot.turn(90)   # right turn
 hub.speaker.beep()
+
 robot.straight(300)
 hub.speaker.beep()
+
 robot.turn(90)   # right turn
 hub.speaker.beep()
+
 robot.straight(300)
 hub.speaker.beep()
+
 robot.turn(90)   # right turn
 hub.speaker.beep()
+
 robot.straight(300)
 hub.speaker.beep()
 

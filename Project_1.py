@@ -48,30 +48,6 @@ def movement_test():
 
     print("Movement Done")
 
-    motor.run_target(100, 90)
-    robot.straight(100)
-    motor.run_target(100, 10)
-    robot.straight(-200)
-    robot.turn(90)
-    robot.straight(-100)
-    hub.speaker.beep()
-    motor.run_target(100, 10)
-    robot.straight(250)
-
-    # Start driving forward
-    robot.drive(150, 0)
-
-    # Keep going until black is detected
-    while True:
-        if sensor.reflection() < 20:
-           robot.stop()
-           hub.speaker.beep()
-           break
-
-    motor.run_target(20, 5)
-    robot.turn(90)
-    robot.straight(200)
-
 def reset_robot():
     robot.stop()
     robot.reset()

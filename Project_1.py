@@ -5,13 +5,11 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 
 hub = PrimeHub()
-sensor = ColorSensor(Port.A)
 
-left_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
-right_motor = Motor(Port.D, Direction.CLOCKWISE)
-motor = Motor(Port.E)  # For the arm, if needed
+left_motor = Motor(Port.D, Direction.COUNTERCLOCKWISE)
+right_motor = Motor(Port.F, Direction.CLOCKWISE)
 
-robot = DriveBase(right_motor, left_motor, 56, 112)
+robot = DriveBase(left_motor, right_motor, 56, 112)
 
 robot.use_gyro(True)
 robot.reset()
@@ -25,7 +23,7 @@ robot.settings(
 
 def movement_test():
     print("Running forward")
-    robot.straight(300)
+    robot.straight(100)
     hub.speaker.beep()
     
     print("Turning right")
@@ -33,11 +31,11 @@ def movement_test():
     hub.speaker.beep()
     
     print("Running forward")
-    robot.straight(200)
+    robot.straight(100)
     hub.speaker.beep()
 
     print("Running backward")
-    robot.straight(-200)
+    robot.straight(-100)
     hub.speaker.beep()
 
     print("Turning left")
@@ -45,12 +43,11 @@ def movement_test():
     hub.speaker.beep()
 
     print("Running backward")
-    robot.straight(-300)
+    robot.straight(-100)
     hub.speaker.beep()
 
     print("Movement Done")
 
-def yellow_delivery():
     motor.run_target(100, 90)
     robot.straight(100)
     motor.run_target(100, 10)
@@ -97,21 +94,6 @@ def gyro_straight(distance, speed=150, gain=2.0):
 
     robot.stop()
 
-def gyro_straight_to_black(speed=150, gain=2.0, black_value=9):
-    robot.reset()
-
-    while True:
-        error = hub.imu.heading()
-        correction = -error * gain
-        robot.drive(speed, correction)
-
-        if sensor.reflection() < black_value:
-            robot.stop()
-            hub.speaker.beep()
-            break
-
-        wait(10)
-
 def gyro_turn(target_angle, turn_speed=80, turn_gain=2.0):
     reset_robot()
 
@@ -148,5 +130,4 @@ gyro_straight(-200)
 hub.speaker.beep()
 '''
 
-
-    
+movement_test()

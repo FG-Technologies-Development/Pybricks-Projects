@@ -5,11 +5,9 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 
 hub = PrimeHub()
-sensor = ColorSensor(Port.A)
 
-left_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
-right_motor = Motor(Port.D, Direction.CLOCKWISE)
-motor = Motor(Port.E)  # For the arm, if needed
+left_motor = Motor(Port.D, Direction.COUNTERCLOCKWISE)
+right_motor = Motor(Port.F, Direction.CLOCKWISE)
 
 robot = DriveBase(right_motor, left_motor, 56, 112)
 
